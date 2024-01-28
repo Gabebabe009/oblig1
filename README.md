@@ -1,11 +1,11 @@
 Oblig 1
 =======
-OsloMet brukernavn: 
+OsloMet brukernavn: gabal8187
 
-GitHub brukernavn: 
+GitHub brukernavn: gabebabe009
 
-Github repo URL: 
+GitHub repo URL: https://github.com/data1700-v23/oblig-1-Gabebabe009
 
-Fullt navn: 
+Fullt navn: Gabija Baltrunaite
 
-Kort beskrivelse av applikasjon (5-10 setninger):
+Kort beskrivelse av applikasjon (5-10 setninger): Kinobillett salg...
