@@ -1,9 +1,9 @@
 let tickets = [];  //Her endres  arrayet fra buyTicket til å være globalt tilgjengelig slik at vi kan bruke det senere i deleteTickets
 
-function buyTickets() {
+function buyTicket() {
 
-    const chosenMovie = document.getElementById("movies").value;
-    const chosenTickets = document.getElementById("numbertickets").value;
+    const chosenMovie = document.getElementById("Movies").value;
+    const wrongNumber = document.getElementById("numberTickets").value;
     const chosenFirstName = document.getElementById("chooseFirstName").value;
     const chosenLastName = document.getElementById("chooseLastName").value;
     const chosenPhoneNr = document.getElementById("choosePhoneNr").value;
@@ -11,7 +11,7 @@ function buyTickets() {
 
     const ticket1 = {  //Oppretter et objekt og legger inn de opprettede variablene.
         movie: chosenMovie,
-        number: chosenTickets,
+        number: wrongNumber,
         firstName: chosenFirstName,
         lastName: chosenLastName,
         phoneNr: chosenPhoneNr,
@@ -26,7 +26,8 @@ function buyTickets() {
         }
     }
 
-    verification(ticket1.number, "numberTickets", "You have to write in an amount from 1-->");
+    verification(ticket1.movie,"wrongMovie","Choose a movie")
+    verification(ticket1.number, "wrongNumber", "You have to write in an amount from 1-->");
     verification(ticket1.firstName, "wrongFristName", "Write in a first name");
     verification(ticket1.lastName, "wrongLastName", "Write in a first last name");
     verification(ticket1.phoneNr, "wrongPhoneNr", "Write in a phone number");
@@ -42,9 +43,8 @@ function buyTickets() {
         document.getElementById("utskrift").innerHTML = ut;
     }
 
+    tickets = [];
     function deleteTickets() {
-
-        tickets = [];
         console.log(tickets);
         printOut();
     }
