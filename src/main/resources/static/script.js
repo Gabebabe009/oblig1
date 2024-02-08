@@ -28,7 +28,6 @@ function buyTicket() {
         } else {
             document.getElementById(errorMessageId).innerHTML = "";
         }
-        console.log("2");
 
     }
 
@@ -47,7 +46,6 @@ function buyTicket() {
         }
         document.getElementById("utskrift").innerHTML = ut;
         console.log(ut);
-        console.log("3");
     }
 
     function deleteTickets(){
