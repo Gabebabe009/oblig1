@@ -1,6 +1,6 @@
 let tickets = [];  //Her endres  arrayet fra buyTicket til å være globalt tilgjengelig slik at vi kan bruke det senere i deleteTickets
 
-function buyTickets(){
+function buyTickets() {
 
     const chosenMovie = document.getElementById("movies").value;
     const chosenTickets = document.getElementById("numbertickets").value;
@@ -17,6 +17,7 @@ function buyTickets(){
         phoneNr: chosenPhoneNr,
         mail: chosenEmail
     };
+
     function verification(value, errorMessageId, errorMessage) {
         if (value === "") {
             document.getElementById(errorMessageId).innerHTML = errorMessage;
@@ -30,4 +31,21 @@ function buyTickets(){
     verification(ticket1.lastName, "wrongLastName", "Write in a first last name");
     verification(ticket1.phoneNr, "wrongPhoneNr", "Write in a phone number");
     verification(ticket1.mail, "wrongMail", "Write in an email");
+
+    function printOut() { //kjører gjennom en for-løkke for å skrive ut verdier vi har laget i objektet og satt inn i arrayet.
+        let ut = "";
+        for (let i = 0; i < tickets.length; i++) {
+            ut += tickets[i].movie + " " + tickets[i].number + " " + tickets[i].firstName
+                + " " + tickets[i].lastName + " " + tickets[i].phoneNr +
+                " " + tickets[i].mail;
+        }
+        document.getElementById("utskrift").innerHTML = ut;
+    }
+
+    function deleteTickets() {
+
+        tickets = [];
+        console.log(tickets);
+        printOut();
+    }
 }
