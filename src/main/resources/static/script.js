@@ -18,24 +18,54 @@ function buyTicket() {
         phoneNr: chosenPhoneNr,
         mail: chosenEmail
     };
-    tickets.push(ticket1);
-    console.log(tickets);
-    printOut();
 
-    function verification(value, errorMessageId, errorMessage) {
-        if (value === "") {
-            document.getElementById(errorMessageId).innerHTML = errorMessage;
-        } else {
-            document.getElementById(errorMessageId).innerHTML = "";
-        }
+    let isValid = true;
 
+    // Validation for number of tickets
+    if (wrongNumber === "" || isNaN(wrongNumber) || wrongNumber < 1) {
+        document.getElementById("wrongNumber").innerHTML = "You have to write in an amount from 1-->";
+        isValid = false;
+    } else {
+        document.getElementById("wrongNumber").innerHTML = "";
     }
 
-    verification(ticket1.number, "wrongNumber", "You have to write in an amount from 1-->");
-    verification(ticket1.firstName, "wrongFristName", "Write in a first name");
-    verification(ticket1.lastName, "wrongLastName", "Write in a first last name");
-    verification(ticket1.phoneNr, "wrongPhoneNr", "Write in a phone number");
-    verification(ticket1.mail, "wrongMail", "Write in an email");
+    // Validation for first name
+    if (chosenFirstName === "") {
+        document.getElementById("wrongFristName").innerHTML = "Write in a first name";
+        isValid = false;
+    } else {
+        document.getElementById("wrongFristName").innerHTML = "";
+    }
+
+    // Validation for last name
+    if (chosenLastName === "") {
+        document.getElementById("wrongLastName").innerHTML = "Write in a last name";
+        isValid = false;
+    } else {
+        document.getElementById("wrongLastName").innerHTML = "";
+    }
+
+    // Validation for phone number (8 digits)
+    if (chosenPhoneNr === "" || !/^\d{8}$/.test(chosenPhoneNr)) {
+        document.getElementById("wrongPhoneNr").innerHTML = "Phone number must contain 8 digits";
+        isValid = false;
+    } else {
+        document.getElementById("wrongPhoneNr").innerHTML = "";
+    }
+
+    // Validation for email (must contain '@')
+    if (chosenEmail === "" || !chosenEmail.includes('@')) {
+        document.getElementById("wrongMail").innerHTML = "Enter a valid email address";
+        isValid = false;
+    } else {
+        document.getElementById("wrongMail").innerHTML = "";
+    }
+
+    if (isValid) {
+        tickets.push(ticket1);
+        console.log(tickets);
+        printOut();
+    }
 }
     function printOut() { //kjører gjennom en for-løkke for å skrive ut verdier vi har laget i objektet og satt inn i arrayet.
         let ut = "";
